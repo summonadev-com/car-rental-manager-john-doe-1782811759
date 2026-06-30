@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '@/pages/HomePage';
 import CarsPage from '@/pages/CarsPage';
+import CarDetailPage from '@/pages/CarDetailPage';
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cars" element={<CarsPage />} />
-        <Route path="/cars/:id" element={<div className="p-8 text-center text-gray-500">Car detail page coming soon…</div>} />
+        <Route path="/cars/:id" element={<CarDetailPage />} />
       </Routes>
     </div>
   );

@@ -42,10 +42,10 @@ const whyItems = [
 ];
 
 const categories = [
-  { label: 'SUV', emoji: '🚙', description: 'Spacious & capable' },
-  { label: 'Sedan', emoji: '🚗', description: 'Comfortable & efficient' },
-  { label: 'Electric', emoji: '⚡', description: 'Clean & futuristic' },
-  { label: 'Convertible', emoji: '🏎️', description: 'Fun & open-air' },
+  { label: 'SUV', emoji: null, image: '/suv.png', description: 'Spacious & capable' },
+  { label: 'Sedan', emoji: '🚗', image: null, description: 'Comfortable & efficient' },
+  { label: 'Electric', emoji: '⚡', image: null, description: 'Clean & futuristic' },
+  { label: 'Convertible', emoji: '🏎️', image: null, description: 'Fun & open-air' },
 ];
 
 export default function HomePage() {
@@ -126,7 +126,13 @@ export default function HomePage() {
                 onClick={() => navigate(`/cars?category=${cat.label}`)}
                 className="group bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-2xl p-6 text-center transition-all cursor-pointer"
               >
-                <div className="text-4xl mb-3">{cat.emoji}</div>
+                <div className="mb-3 flex items-center justify-center">
+                  {cat.image ? (
+                    <img src={cat.image} alt={cat.label} className="w-full h-24 object-cover rounded-xl" />
+                  ) : (
+                    <span className="text-4xl">{cat.emoji}</span>
+                  )}
+                </div>
                 <div className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">{cat.label}</div>
                 <div className="text-sm text-gray-500 mt-1">{cat.description}</div>
               </button>

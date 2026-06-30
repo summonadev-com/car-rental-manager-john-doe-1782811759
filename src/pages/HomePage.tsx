@@ -43,7 +43,7 @@ const whyItems = [
 
 const categories = [
   { label: 'SUV', emoji: null, image: '/suv.png', description: 'Spacious & capable' },
-  { label: 'Sedan', emoji: '🚗', image: null, description: 'Comfortable & efficient' },
+  { label: 'Sedan', emoji: null, image: '/sedan.png', description: 'Comfortable & efficient' },
   { label: 'Electric', emoji: '⚡', image: null, description: 'Clean & futuristic' },
   { label: 'Convertible', emoji: '🏎️', image: null, description: 'Fun & open-air' },
 ];

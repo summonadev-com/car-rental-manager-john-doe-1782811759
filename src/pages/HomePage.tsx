@@ -42,10 +42,10 @@ const whyItems = [
 ];
 
 const categories = [
-  { label: 'SUV', emoji: null, image: '/suv.png', description: 'Spacious & capable' },
-  { label: 'Sedan', emoji: null, image: '/sedan.png', description: 'Comfortable & efficient' },
-  { label: 'Electric', emoji: null, image: '/electric.png', description: 'Clean & futuristic' },
-  { label: 'Convertible', emoji: null, image: '/convertible.png', description: 'Fun & open-air' },
+  { label: 'SUV', image: '/suv.png', description: 'Spacious & capable' },
+  { label: 'Sedan', image: '/sedan.png', description: 'Comfortable & efficient' },
+  { label: 'Electric', image: '/electric.png', description: 'Clean & futuristic' },
+  { label: 'Convertible', image: '/convertible.png', description: 'Fun & open-air' },
 ];
 
 export default function HomePage() {
@@ -56,28 +56,28 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-blue-950 text-white overflow-hidden">
+      <section className="relative bg-gray-950 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-indigo-500 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-1/4 w-96 h-96 bg-amber-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-amber-700 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
           <div className="max-w-2xl">
-            <span className="inline-block bg-blue-600/20 border border-blue-500/30 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-widest">
+            <span className="inline-block bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-widest">
               Premium Car Rental
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6">
               Find Your
               <br />
-              <span className="text-blue-400">Perfect Ride</span>
+              <span className="text-amber-400">Perfect Ride</span>
             </h1>
-            <p className="text-lg text-gray-300 mb-10 max-w-lg">
+            <p className="text-lg text-gray-400 mb-10 max-w-lg">
               Choose from our handpicked fleet of premium vehicles. Flexible rentals, transparent pricing, and a seamless experience from start to finish.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/cars"
-                className="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base px-8 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2 shadow-lg shadow-blue-900/40"
+                className="bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold text-base px-8 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2 shadow-lg shadow-amber-900/30"
               >
                 Browse All Cars
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -85,8 +85,8 @@ export default function HomePage() {
                 </svg>
               </Link>
               <Link
-                to="/cars"
-                className="border border-white/20 hover:border-white/40 text-white font-semibold text-base px-8 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2 backdrop-blur-sm"
+                to="/cars?category=Electric"
+                className="border border-gray-700 hover:border-amber-500/50 text-gray-300 hover:text-white font-semibold text-base px-8 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2"
               >
                 View Electric Cars
               </Link>
@@ -95,7 +95,7 @@ export default function HomePage() {
         </div>
 
         {/* Stats bar */}
-        <div className="relative border-t border-white/10 bg-white/5 backdrop-blur-sm">
+        <div className="relative border-t border-gray-800 bg-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: '200+', label: 'Vehicles Available' },
@@ -104,8 +104,8 @@ export default function HomePage() {
               { value: '24/7', label: 'Roadside Support' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                <div className="text-2xl font-bold text-amber-400">{stat.value}</div>
+                <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -113,10 +113,10 @@ export default function HomePage() {
       </section>
 
       {/* Popular Categories */}
-      <section className="bg-white py-16">
+      <section className="bg-gray-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900">Popular Categories</h2>
+            <h2 className="text-3xl font-bold text-white">Popular Categories</h2>
             <p className="text-gray-500 mt-2">Find the vehicle type that suits your journey</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -124,16 +124,12 @@ export default function HomePage() {
               <button
                 key={cat.label}
                 onClick={() => navigate(`/cars?category=${cat.label}`)}
-                className="group bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-2xl p-6 text-center transition-all cursor-pointer"
+                className="group bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-amber-500/50 rounded-2xl p-4 text-center transition-all cursor-pointer"
               >
                 <div className="mb-3 flex items-center justify-center">
-                  {cat.image ? (
-                    <img src={cat.image} alt={cat.label} className="w-full h-24 object-cover rounded-xl" />
-                  ) : (
-                    <span className="text-4xl">{cat.emoji}</span>
-                  )}
+                  <img src={cat.image} alt={cat.label} className="w-full h-24 object-cover rounded-xl" />
                 </div>
-                <div className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">{cat.label}</div>
+                <div className="font-semibold text-white group-hover:text-amber-400 transition-colors">{cat.label}</div>
                 <div className="text-sm text-gray-500 mt-1">{cat.description}</div>
               </button>
             ))}
@@ -142,10 +138,10 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-950 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Why Choose DriveEasy?</h2>
+            <h2 className="text-3xl font-bold text-white">Why Choose DriveEasy?</h2>
             <p className="text-gray-500 mt-2 max-w-xl mx-auto">
               We make car rental simple, transparent, and stress-free every time.
             </p>
@@ -154,12 +150,12 @@ export default function HomePage() {
             {whyItems.map((item) => (
               <div
                 key={item.title}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-amber-500/40 transition-colors"
               >
-                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-4">
                   {item.icon}
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <h3 className="font-semibold text-white mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
               </div>
             ))}
@@ -168,15 +164,15 @@ export default function HomePage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-blue-600 py-16">
+      <section className="bg-amber-500 py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Hit the Road?</h2>
-          <p className="text-blue-100 mb-8 text-lg">
+          <h2 className="text-3xl font-bold text-gray-950 mb-4">Ready to Hit the Road?</h2>
+          <p className="text-amber-900 mb-8 text-lg">
             Browse our full fleet and find the perfect car for your next adventure.
           </p>
           <Link
             to="/cars"
-            className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-4 rounded-xl inline-flex items-center gap-2 transition-colors shadow-lg"
+            className="bg-gray-950 text-amber-400 hover:bg-gray-800 font-bold px-8 py-4 rounded-xl inline-flex items-center gap-2 transition-colors shadow-lg"
           >
             Explore All Cars
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">

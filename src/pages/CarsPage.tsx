@@ -27,22 +27,22 @@ export default function CarsPage() {
   const filterProps = { filters, setSearch, setCategory, setMaxPrice, setMinSeats, setTransmission, resetFilters };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-950">
       <Navbar />
 
       <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Page header */}
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Browse Cars</h1>
+            <h1 className="text-2xl font-bold text-white">Browse Cars</h1>
             <p className="text-sm text-gray-500 mt-1">
-              Showing <span className="font-semibold text-gray-700">{filteredCars.length}</span> of {cars.length} vehicles
+              Showing <span className="font-semibold text-amber-400">{filteredCars.length}</span> of {cars.length} vehicles
             </p>
           </div>
           {/* Mobile filter toggle */}
           <button
             onClick={() => setFiltersOpen(!filtersOpen)}
-            className="lg:hidden flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2 rounded-lg shadow-sm hover:bg-gray-50 transition-colors"
+            className="lg:hidden flex items-center gap-2 bg-gray-900 border border-gray-700 text-gray-300 font-medium text-sm px-4 py-2 rounded-lg hover:border-amber-500/50 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
@@ -75,13 +75,13 @@ export default function CarsPage() {
             ) : (
               <div className="flex flex-col items-center justify-center py-24 text-center">
                 <div className="text-5xl mb-4">🔍</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">No cars found</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">No cars found</h3>
                 <p className="text-gray-500 text-sm max-w-sm mb-6">
                   No vehicles match your current filters. Try adjusting your search criteria.
                 </p>
                 <button
                   onClick={resetFilters}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-6 py-2.5 rounded-lg transition-colors"
+                  className="bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold text-sm px-6 py-2.5 rounded-lg transition-colors"
                 >
                   Reset Filters
                 </button>

@@ -24,12 +24,12 @@ export default function FilterPanel({
   resetFilters,
 }: FilterPanelProps) {
   return (
-    <aside className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6 shadow-sm">
+    <aside className="bg-gray-900 rounded-2xl border border-gray-800 p-6 space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="font-semibold text-gray-900 text-base">Filters</h2>
+        <h2 className="font-semibold text-white text-base">Filters</h2>
         <button
           onClick={resetFilters}
-          className="text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          className="text-xs text-amber-400 hover:text-amber-300 font-medium transition-colors"
         >
           Reset all
         </button>
@@ -41,7 +41,7 @@ export default function FilterPanel({
           Search
         </label>
         <div className="relative">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input
@@ -49,7 +49,7 @@ export default function FilterPanel({
             placeholder="Brand or model…"
             value={filters.search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+            className="w-full pl-9 pr-3 py-2.5 text-sm border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-500"
           />
         </div>
       </div>
@@ -66,8 +66,8 @@ export default function FilterPanel({
               onClick={() => setCategory(cat)}
               className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                 filters.category === cat
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-600'
+                  ? 'bg-amber-500 text-gray-950 border-amber-500'
+                  : 'bg-gray-800 text-gray-400 border-gray-700 hover:border-amber-500/50 hover:text-amber-400'
               }`}
             >
               {cat}
@@ -82,7 +82,7 @@ export default function FilterPanel({
           <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
             Max Price / Day
           </label>
-          <span className="text-sm font-bold text-blue-600">${filters.maxPrice}</span>
+          <span className="text-sm font-bold text-amber-400">${filters.maxPrice}</span>
         </div>
         <input
           type="range"
@@ -91,9 +91,9 @@ export default function FilterPanel({
           step={10}
           value={filters.maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          className="w-full accent-blue-600 cursor-pointer"
+          className="w-full accent-amber-500 cursor-pointer"
         />
-        <div className="flex justify-between text-xs text-gray-400 mt-1">
+        <div className="flex justify-between text-xs text-gray-600 mt-1">
           <span>$30</span>
           <span>$300</span>
         </div>
@@ -111,8 +111,8 @@ export default function FilterPanel({
               onClick={() => setMinSeats(n)}
               className={`flex-1 text-xs font-medium py-2 rounded-lg border transition-colors ${
                 filters.minSeats === n
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'bg-white text-gray-600 border-gray-200 hover:border-blue-300'
+                  ? 'bg-amber-500 text-gray-950 border-amber-500'
+                  : 'bg-gray-800 text-gray-400 border-gray-700 hover:border-amber-500/50'
               }`}
             >
               {n === 1 ? 'Any' : `${n}+`}
@@ -133,8 +133,8 @@ export default function FilterPanel({
               onClick={() => setTransmission(t)}
               className={`flex-1 text-xs font-medium py-2 rounded-lg border transition-colors ${
                 filters.transmission === t
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'bg-white text-gray-600 border-gray-200 hover:border-blue-300'
+                  ? 'bg-amber-500 text-gray-950 border-amber-500'
+                  : 'bg-gray-800 text-gray-400 border-gray-700 hover:border-amber-500/50'
               }`}
             >
               {t}
